@@ -71,6 +71,15 @@ class App extends Component {
     console.log("-----------------------");
     console.log("fetch posts called! last id: " + this.state.lastPostID);
     var url;
+    // if (this.state.lastPostID === "init") {
+    //   url = "https://www.reddit.com/r/all/top/.json?limit=100";
+    // } else {
+    //   url =
+    //     "https://www.reddit.com/r/all/top/.json?limit=100?after=" +
+    //     this.state.lastPostID;
+    // }
+    url = "https://www.reddit.com/r/all/top/.json?limit=100";
+    console.log(url);
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false); // false for synchronous request
     xmlHttp.send(null);
