@@ -5,7 +5,7 @@ const toolbar = props => {
 
   return (
     <div>
-      <button> toggle NSFW </button>
+      <button onClick={props.toggleNSFW}> toggle NSFW </button>
       <button> null </button>
     </div>
   );

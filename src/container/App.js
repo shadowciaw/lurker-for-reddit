@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import classes from "./App.module.css";
 
 import Posts from "../components/Posts/Posts";
+import Toolbar from "../components/Toolbar/Toolbar";
 
 import testPost from "../assets/test_data";
 
@@ -9,10 +10,15 @@ class App extends Component {
   constructor(props) {
     super(props);
     console.log("[App.js] constructor");
+    this.state = {
+      showNSFW: false,
+      posts: [testPost]
+    };
   }
 
   state = {
-    ...testPost
+    showNSFW: false,
+    posts: []
   };
 
   // filter function that sets the state and calls for a re-render
@@ -38,18 +44,30 @@ class App extends Component {
     this.filterData(xmlHttp.responseText);
   };
 
+  toggleNSFWHandler = () => {
+    let showNSFW = this.state.showNSFW;
+    console.log(showNSFW ? "now SHOWING NSFW" : "NOT SHOWING NSFW");
+    this.setState({ showNSFW: !showNSFW });
+  };
+
   render() {
     return (
       <div className={classes.App}>
         <div className={classes.Title}>
           <h1>Lurker for Reddit</h1>
-          <button onClick={() => this.fetchPosts("init")}>refetch</button>
-          {console.log("current state", this.state)}
         </div>
         <div className={classes.Body}>
-          <div>make thing here</div>
-          <Posts testPost={this.state} />
+          <div>
+            <Toolbar toggleNSFW={this.toggleNSFWHandler} />
+          </div>
+          <Posts testPost={testPost} />
         </div>
+        <button
+          className={classes.LoadMoreButton}
+          onClick={() => this.fetchPosts("init")}
+        >
+          load more posts
+        </button>
       </div>
     );
   }
