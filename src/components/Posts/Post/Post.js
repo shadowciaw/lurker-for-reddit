@@ -98,7 +98,7 @@ const post = props => {
         <div className={classes.TitleTime}>{computeTime()}</div>
       </div>
       <div className={classes.TitleImage}>
-        {props.is_text && <div className={classes.TitleImageText}>{props.self_text}</div>}
+        {props.is_text && <div className={classes.TitleImageText}>{props.selftext}</div>}
         {notText && isImage() && (
           <img src={props.image} width="600" align="center" />
         )}
