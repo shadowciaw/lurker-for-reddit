@@ -11,7 +11,7 @@
   flex-direction: column;
   margin: 16px;
   /* top, right, bottom, left */
-  padding: 10px;
+  padding: 16px;
   border: 1px solid var(--special);
   background-color: var(--primary);
   width: auto;
@@ -51,7 +51,7 @@
   padding-left: 10px;
 }
 
-.TitleText:hover{
+.TitleText:hover {
   overflow-x: visible;
   white-space: normal;
 }
