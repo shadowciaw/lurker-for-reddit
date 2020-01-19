@@ -25,8 +25,10 @@
   grid-template-areas:
     "A B B B"
     "A C D E";
-  padding: 0;
-  margin: 0;
+  padding: 0 0 5px 0;
+  margin: auto;
+  grid-auto-rows: 1fr;
+  vertical-align: middle;
 }
 
 .TitleScore {
@@ -39,7 +41,7 @@
 .TitleText {
   grid-area: B;
   color: var(--first);
-  justify-self: left;
+  justify-self: center;
   font-size: 23px;
   display: inline-block;
   overflow-x: hidden;
@@ -59,16 +61,19 @@
 .TitleSubreddit {
   grid-area: C;
   color: var(--second);
+  margin: auto;
 }
 
 .TitleUsername {
   grid-area: D;
   color: var(--second);
+  margin: auto;
 }
 
 .TitleTime {
   grid-area: E;
   color: var(--second);
+  margin: auto;
 }
 
 img {
