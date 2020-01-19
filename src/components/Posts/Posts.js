@@ -5,7 +5,7 @@ import Post from "./Post/Post";
 const posts = props => {
   console.log("[Posts.js] rendering...");
 
-  return props.post.map((post, index) => {
+  return props.posts.map((post, index) => {
     return (
       <Post
         key={post.id}

@@ -10,17 +10,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     console.log("[App.js] constructor");
-    this.state = {
-      showNSFW: false,
-      lastPost: "",
-      posts: [testPost]
-    };
   }
 
   state = {
     showNSFW: false,
     lastPost: "",
-    posts: []
+    posts: [testPost]
   };
 
   // filter function that sets the state and calls for a re-render
@@ -83,8 +78,8 @@ class App extends Component {
           <div>
             <Toolbar toggleNSFW={this.toggleNSFWHandler} />
           </div>
-          {console.log(this.state.posts)}
-          {/* <Posts posts={this.state.posts} /> */}
+          {/* {console.log(this.state.posts)} */}
+          <Posts posts={this.state.posts} />
         </div>
         <button
           className={classes.LoadMoreButton}
