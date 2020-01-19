@@ -2,38 +2,63 @@
   display: flex;
   flex-direction: column;
   margin: 16px;
+  /* top, right, bottom, left */
   padding: 10px;
+  border: solid;
+  background-color: #5B5B5B;
   width: auto;
   text-align: center;
+  border-radius: 3%;
 }
 
 .Title {
   display: grid;
+  grid-template-columns: 75px 175px 175px 175px;
   grid-template-areas:
     "A B B B"
     "A C D E";
+  padding: 0;
+  margin: 0;
 }
 
 .TitleScore {
   grid-area: A;
   align-self: center;
   color: #24E5D8;
+  font-size: 25px;
 }
 
 .TitleText {
   grid-area: B;
   color: #FFFFFF;
+  justify-self: left;
+  font-size: 23px;
+  display: inline-block;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* fill with same method to have border box as the liimiting factor */
+  max-width: 100%;
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+
+.TitleText:hover {
+  overflow-x: visible;
+  white-space: normal;
 }
 
 .TitleSubreddit {
   grid-area: C;
-  color: #E5E5E5;
+  color: rgb(69, 69, 69) ;
 }
 
 .TitleUsername {
   grid-area: D;
+  color: rgb(69, 69, 69);
 }
 
 .TitleTime {
   grid-area: E;
+  color: rgb(69, 69, 69);
 }
