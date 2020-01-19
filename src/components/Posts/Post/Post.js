@@ -16,8 +16,14 @@ const post = props => {
     return score;
   };
 
-  let isText = () => {
-    if ()
+  let notText = !props.is_text;
+
+  let isImage = () => {
+    let regex = /.*\.jpg$|.*\.png$|.*\.gif$/;
+    let foundStuff = regex.exec(props.image);
+    console.log(props.image);
+    console.log(foundStuff !== 0);
+    return (foundStuff !== 0 ? true : false);
   }
 
   return (
@@ -30,7 +36,9 @@ const post = props => {
         <div className={classes.TitleUsername}>u/{props.author}</div>
         <div className={classes.TitleTime}>time</div>
       </div>
-      <img src={props.image} width="600" align="left" />
+      <div>
+        {notText && isImage() && <img src={props.image} width="600" align="center" />}
+      </div>
     </div>
   );
 };

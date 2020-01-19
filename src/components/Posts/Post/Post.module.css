@@ -43,7 +43,12 @@
   padding-left: 10px;
 }
 
-.TitleText:hover {
+.TitleText:hover{
+  overflow-x: visible;
+  white-space: normal;
+}
+
+.TitleText:onClick {
   overflow-x: visible;
   white-space: normal;
 }
