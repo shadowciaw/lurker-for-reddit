@@ -4,9 +4,10 @@
   width: 200px;
   height: 100vh;
   position: fixed;
-  padding-top: 90px;
+  /* padding-top: 90px; */
   padding-left: 10px;
   background-color: rgba(166, 245, 255, 0.281);
+  justify-content: center;
 }
 
 .SwitchContainer {

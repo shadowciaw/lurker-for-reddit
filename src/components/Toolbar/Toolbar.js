@@ -8,6 +8,7 @@ const Toolbar = props => {
   console.log("[Toolbar.js] rendering...");
 
   const [toggleNSFW, setToggleNSFW] = useState('false');
+  const [toggleSpoiler, setToggleSpoiler] = useState('false');
 
   console.log(toggleNSFW);
   return (
@@ -20,14 +21,17 @@ const Toolbar = props => {
           />
           <span className={classes.Slider}></span>
         </label>
-        <div className={classes.SwitchText}>Toggle NSFW</div>
+        <div className={classes.SwitchText}>Enable NSFW</div>
       </div>
       <div className={classes.SwitchContainer}>
         <label className={classes.Switch}>
-          <input type="checkbox" />
+          <input type="checkbox"
+            checked={toggleSpoiler}
+            onChange={event => setToggleSpoiler(!toggleSpoiler)}
+          />
           <span className={classes.Slider}></span>
         </label>
-        <div className={classes.SwitchText}>Other Toggle</div>
+        <div className={classes.SwitchText}>Enable Spoiler</div>
       </div>
     </div>
   );

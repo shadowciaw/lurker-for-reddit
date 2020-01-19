@@ -83,7 +83,7 @@ const post = props => {
       );
     } else {
       console.log("could not match anything: " + url);
-      return null;
+      return <a href={url}>{url}</a>;
     }
   };
 
@@ -97,7 +97,8 @@ const post = props => {
         <div className={classes.TitleUsername}>u/{props.author}</div>
         <div className={classes.TitleTime}>{computeTime()}</div>
       </div>
-      <div>
+      <div className={classes.TitleImage}>
+        {props.is_text && <div className={classes.TitleImageText}>{props.self_text}</div>}
         {notText && isImage() && (
           <img src={props.image} width="600" align="center" />
         )}
