@@ -39,7 +39,7 @@
 .TitleText {
   grid-area: B;
   color: var(--first);
-  justify-self: center;
+  justify-self: left;
   font-size: 23px;
   display: inline-block;
   overflow-x: hidden;

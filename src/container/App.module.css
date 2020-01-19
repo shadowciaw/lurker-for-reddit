@@ -3,7 +3,7 @@
   flex-direction: column;
   text-align: center;
   background-color: #282c34;
-  color: white;
+  color: #66fcf1;
 }
 
 .AppHeader {
@@ -14,19 +14,41 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #66fcf1;
 
-  border: 1px solid white;
+  border: 1px solid #66fcf1;
   border-radius: 10%;
 }
 
 .LoadMoreButton {
-  /* height: 5%; */
-  width: 50%;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	background-color:#2dabf9;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #263666;
+  width: 600px;
+  margin: auto;
+  text-align: center;
+}
+.LoadMoreButton:hover {
+	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	background-color:#0688fa;
+}
+.LoadMoreButton:active {
+	position:relative;
+	top:1px;
 }
 
 .Body {
   display: flex;
-  width: 100vw;
+  width: auto;
   justify-content: space-evenly;
 }

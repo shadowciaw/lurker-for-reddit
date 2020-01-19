@@ -80,10 +80,8 @@ class App extends Component {
         <div className={classes.Title}>
           <h1>Lurker for Reddit</h1>
         </div>
+        <Toolbar toggleNSFW={this.toggleNSFWHandler} />
         <div className={classes.Body}>
-          {/* <div>
-            <Toolbar toggleNSFW={this.toggleNSFWHandler} />
-          </div> */}
           <Posts posts={this.state.posts} />
         </div>
         <button
