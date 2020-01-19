@@ -15,7 +15,8 @@ class App extends Component {
   state = {
     showNSFW: false,
     lastPostID: "",
-    posts: [testPost]
+    posts: [testPost],
+    blacklist: []
   };
 
   componentDidMount() {
@@ -24,6 +25,7 @@ class App extends Component {
 
   // filter function that sets the state and calls for a re-render
   filterData = responseItem => {
+
     // ... code here; edit response Item
 
     responseItem = JSON.parse(responseItem);
@@ -36,6 +38,12 @@ class App extends Component {
 
     for (var i = 0; i < unfilteredPosts.length; i++) {
       filteredPosts.push({
+
+        // if (unfilteredPosts[i].data.over_18 == true && this.state.showNSFW == false) ||
+        //     (this.state.blacklist.includes(unfilteredPosts[i].data.subreddit_name_prefixed)){
+        //     continue;
+        // }
+
         id: unfilteredPosts[i].data.name,
         subreddit: unfilteredPosts[i].data.subreddit_name_prefixed,
         title: unfilteredPosts[i].data.title,
@@ -47,6 +55,8 @@ class App extends Component {
         spoiler: unfilteredPosts[i].data.spoiler,
         is_text: unfilteredPosts[i].data.is_self,
         image: unfilteredPosts[i].data.url
+
+
       });
       lastID = unfilteredPosts[i].data.name;
       lastTitle = unfilteredPosts[i].data.title;
@@ -87,10 +97,8 @@ class App extends Component {
         <div className={classes.Title}>
           <h1>Lurker for Reddit</h1>
         </div>
+        <Toolbar toggleNSFW={this.toggleNSFWHandler} />
         <div className={classes.Body}>
-          {/* <div>
-            <Toolbar toggleNSFW={this.toggleNSFWHandler} />
-          </div> */}
           <Posts posts={this.state.posts} />
         </div>
         <button
