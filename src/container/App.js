@@ -25,7 +25,6 @@ class App extends Component {
 
   // filter function that sets the state and calls for a re-render
   filterData = responseItem => {
-
     // ... code here; edit response Item
 
     responseItem = JSON.parse(responseItem);
@@ -38,7 +37,6 @@ class App extends Component {
 
     for (var i = 0; i < unfilteredPosts.length; i++) {
       filteredPosts.push({
-
         // if (unfilteredPosts[i].data.over_18 == true && this.state.showNSFW == false) ||
         //     (this.state.blacklist.includes(unfilteredPosts[i].data.subreddit_name_prefixed)){
         //     continue;
@@ -55,8 +53,6 @@ class App extends Component {
         spoiler: unfilteredPosts[i].data.spoiler,
         is_text: unfilteredPosts[i].data.is_self,
         image: unfilteredPosts[i].data.url
-
-
       });
       lastID = unfilteredPosts[i].data.name;
       lastTitle = unfilteredPosts[i].data.title;
@@ -71,10 +67,10 @@ class App extends Component {
     console.log("fetch posts called! last id: " + this.state.lastPostID);
     var url;
     if (this.state.lastPostID === "init") {
-      url = "https://www.reddit.com/r/all/top/.json?limit=25";
+      url = "https://www.reddit.com/r/all/top/.json?limit=5";
     } else {
       url =
-        "https://www.reddit.com/r/all/top/.json?limit=25?after=" +
+        "https://www.reddit.com/r/all/top/.json?limit=5?after=" +
         this.state.lastPostID;
     }
     let xmlHttp = new XMLHttpRequest();

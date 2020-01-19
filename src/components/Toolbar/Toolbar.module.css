@@ -5,9 +5,10 @@
   position: fixed;
   padding-top: 90px;
   padding-left: 10px;
+  background-color: rgba(166, 245, 255, 0.281);
 }
 
-.SwitchContainer{
+.SwitchContainer {
   display: flex;
   height: auto;
   padding: 5px;
@@ -43,8 +44,8 @@
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
   border-radius: 34px;
 }
 
@@ -56,17 +57,17 @@
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked + .Slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .Slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .Slider:before {

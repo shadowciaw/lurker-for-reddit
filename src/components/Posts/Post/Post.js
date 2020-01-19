@@ -28,9 +28,28 @@ const post = props => {
     const curTime = Date.now();
     let diff = curTime / 1000 - props.created;
     diff = Math.round(diff / 60 / 60);
-    return (diff.toString() + 'h ago');
-  }
-  
+    return diff.toString() + "h ago";
+  };
+
+  let showVideo = url => {
+    let regex = /.*youtu.be\/([a-zA-Z0-9]+)/;
+    let result = url.match(regex);
+    console.log(result);
+    if (result) {
+      url = "https://www.youtube.com/embed/" + result[1];
+    }
+
+    return (
+      <iframe
+        width="600"
+        height="315"
+        src={url}
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      ></iframe>
+    );
+  };
+
   return (
     //
     <div className={classes.Post}>
@@ -45,12 +64,13 @@ const post = props => {
         {notText && isImage() && (
           <img src={props.image} width="600" align="center" />
         )}
-        {notText && !isImage() && (
-          <video width="600" controls autoplay>
-            {console.log(props.image)}
-            <source src={props.image} />
-          </video>
-        )}
+        {notText &&
+          !isImage() &&
+          // <video width="600" controls autoPlay>
+          //   {/* {console.log(props.image)} */}
+          //   <source src={props.image} type="video/mp4" />
+          // </video>
+          showVideo(props.image)}
       </div>
     </div>
   );
