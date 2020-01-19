@@ -43,6 +43,7 @@ class App extends Component {
         // }
 
         id: unfilteredPosts[i].data.name,
+        selftext: unfilteredPosts[i].data.selftext,
         subreddit: unfilteredPosts[i].data.subreddit_name_prefixed,
         title: unfilteredPosts[i].data.title,
         score: unfilteredPosts[i].data.score,
