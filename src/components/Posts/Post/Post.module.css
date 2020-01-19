@@ -56,11 +56,6 @@
   white-space: normal;
 }
 
-.TitleText:onClick {
-  overflow-x: visible;
-  white-space: normal;
-}
-
 .TitleSubreddit {
   grid-area: C;
   color: var(--second);
