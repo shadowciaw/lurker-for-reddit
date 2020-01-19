@@ -49,7 +49,7 @@ class App extends Component {
       lastID = unfilteredPosts[i].data.name;
     }
 
-    this.setState({ posts: filteredPosts });
+    this.setState({ posts: filteredPosts, lastPostID: lastID });
   };
 
   // will be called when user presses "load more posts button"
@@ -84,7 +84,6 @@ class App extends Component {
           {/* <div>
             <Toolbar toggleNSFW={this.toggleNSFWHandler} />
           </div> */}
-          {/* {console.log(this.state.posts)} */}
           <Posts posts={this.state.posts} />
         </div>
         <button
