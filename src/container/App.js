@@ -14,9 +14,13 @@ class App extends Component {
 
   state = {
     showNSFW: false,
-    lastPost: "",
+    lastPostID: "",
     posts: [testPost]
   };
+
+  componentDidMount() {
+    this.fetchPosts("init");
+  }
 
   // filter function that sets the state and calls for a re-render
   filterData = responseItem => {
@@ -26,9 +30,9 @@ class App extends Component {
     let unfilteredPosts = responseItem.data.children;
     // console.log(unfilteredPosts);
     let filteredPosts = [];
-    let i = 0;
+    let lastID = "";
 
-    for (i = 0; i < unfilteredPosts.length; i++) {
+    for (var i = 0; i < unfilteredPosts.length; i++) {
       filteredPosts.push({
         id: unfilteredPosts[i].data.name,
         subreddit: unfilteredPosts[i].data.subreddit_name_prefixed,
@@ -41,6 +45,7 @@ class App extends Component {
         spoiler: unfilteredPosts[i].data.spoiler,
         image: unfilteredPosts[i].data.url
       });
+      lastID = unfilteredPosts[i].data.name;
     }
 
     this.setState({ posts: filteredPosts });
@@ -50,9 +55,9 @@ class App extends Component {
   fetchPosts = post_id => {
     var url;
     if (post_id === "init") {
-      url = "https://www.reddit.com/r/all/top/.json?limit=10";
+      url = "https://www.reddit.com/r/all/top/.json?limit=50";
     } else {
-      url = "https://www.reddit.com/r/all/top/.json??limit=1?after=" + post_id;
+      url = "https://www.reddit.com/r/all/top/.json?limit=50?after=" + post_id;
     }
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false); // false for synchronous request
@@ -83,7 +88,7 @@ class App extends Component {
         </div>
         <button
           className={classes.LoadMoreButton}
-          onClick={() => this.fetchPosts("init")}
+          onClick={() => this.fetchPosts(this.state.lastPostID)}
         >
           load more posts
         </button>
