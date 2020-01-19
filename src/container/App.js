@@ -37,10 +37,10 @@ class App extends Component {
     for (var i = 0; i < unfilteredPosts.length; i++) {
       filteredPosts.push({
 
-        if (unfilteredPosts[i].data.over_18 == true && this.state.showNSFW == false) ||
-            (this.state.blacklist.includes(unfilteredPosts[i].data.subreddit_name_prefixed)){
-            continue;
-        }
+        // if (unfilteredPosts[i].data.over_18 == true && this.state.showNSFW == false) ||
+        //     (this.state.blacklist.includes(unfilteredPosts[i].data.subreddit_name_prefixed)){
+        //     continue;
+        // }
 
         id: unfilteredPosts[i].data.name,
         subreddit: unfilteredPosts[i].data.subreddit_name_prefixed,
