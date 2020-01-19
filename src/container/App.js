@@ -32,6 +32,8 @@ class App extends Component {
     let filteredPosts = [];
     let lastID = "";
 
+    let lastTitle = "";
+
     for (var i = 0; i < unfilteredPosts.length; i++) {
       filteredPosts.push({
         id: unfilteredPosts[i].data.name,
@@ -47,18 +49,23 @@ class App extends Component {
         image: unfilteredPosts[i].data.url
       });
       lastID = unfilteredPosts[i].data.name;
+      lastTitle = unfilteredPosts[i].data.title;
     }
+    console.log(lastID + ": " + lastTitle);
 
     this.setState({ posts: filteredPosts, lastPostID: lastID });
   };
 
   // will be called when user presses "load more posts button"
-  fetchPosts = post_id => {
+  fetchPosts = () => {
+    console.log("fetch posts called! last id: " + this.state.lastPostID);
     var url;
-    if (post_id === "init") {
+    if (this.state.lastPostID === "init") {
       url = "https://www.reddit.com/r/all/top/.json?limit=25";
     } else {
-      url = "https://www.reddit.com/r/all/top/.json?limit=25?after=" + post_id;
+      url =
+        "https://www.reddit.com/r/all/top/.json?limit=25?after=" +
+        this.state.lastPostID;
     }
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false); // false for synchronous request
@@ -88,7 +95,8 @@ class App extends Component {
         </div>
         <button
           className={classes.LoadMoreButton}
-          onClick={() => this.fetchPosts(this.state.lastPostID)}
+          // onClick={() => this.fetchPosts(this.state.lastPostID)}
+          onClick={() => this.fetchPosts}
         >
           load more posts
         </button>
