@@ -24,6 +24,13 @@ const post = props => {
     return foundStuff !== null ? true : false;
   };
 
+  let computeTime = () => {
+    const curTime = Date.now();
+    let diff = curTime / 1000 - props.created;
+    diff = Math.round(diff / 60 / 60);
+    return (diff.toString() + 'h ago');
+  }
+  
   return (
     //
     <div className={classes.Post}>
@@ -32,7 +39,7 @@ const post = props => {
         <div className={classes.TitleText}>{props.title}</div>
         <div className={classes.TitleSubreddit}>{props.subreddit}</div>
         <div className={classes.TitleUsername}>u/{props.author}</div>
-        <div className={classes.TitleTime}>time</div>
+        <div className={classes.TitleTime}>{computeTime()}</div>
       </div>
       <div>
         {notText && isImage() && (
