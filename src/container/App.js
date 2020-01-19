@@ -47,6 +47,7 @@ class App extends Component {
           {console.log("current state", this.state)}
         </div>
         <div className={classes.Body}>
+          <div>make thing here</div>
           <Posts testPost={this.state} />
         </div>
       </div>

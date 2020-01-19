@@ -1,7 +1,6 @@
 .Post {
   display: flex;
   flex-direction: column;
-  background-color: rgb(70, 153, 125);
   margin: 16px;
   padding: 10px;
   width: auto;
@@ -18,14 +17,17 @@
 .TitleScore {
   grid-area: A;
   align-self: center;
+  color: #24E5D8;
 }
 
 .TitleText {
   grid-area: B;
+  color: #FFFFFF;
 }
 
 .TitleSubreddit {
   grid-area: C;
+  color: #E5E5E5;
 }
 
 .TitleUsername {
