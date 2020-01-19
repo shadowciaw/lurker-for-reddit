@@ -33,11 +33,14 @@ class App extends Component {
   render() {
     return (
       <div className={classes.App}>
-        <h1>Lurker for Reddit</h1>
-        <button onClick={() => this.refetch("init")}>refetch</button>
-        {console.log("test1", this.state)}
-
-        <Posts testPost={this.state} />
+        <div className={classes.Title}>
+          <h1>Lurker for Reddit</h1>
+          <button onClick={() => this.refetch("init")}>refetch</button>
+          {console.log("test1", this.state)}
+        </div>
+        <div className={classes.Body}>
+          <Posts testPost={this.state} />
+        </div>
       </div>
     );
   }

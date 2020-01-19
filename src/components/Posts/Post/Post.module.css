@@ -1,7 +1,9 @@
 .Post {
+  display: flex;
+  flex-direction: column;
   background-color: rgb(70, 153, 125);
   margin: 16px;
   padding: 10px;
-  width: 60%;
+  width: auto;
   text-align: center;
 }

@@ -9,10 +9,13 @@ const post = props => {
 
   return (
     <div className={classes.Post}>
+      <div className={classes.Title}>
+        <div className={classes.TitleText}>{props.data.data.children[0].data.title}</div>
+      </div>
       <img
         src={props.data.data.children[0].data.url}
         width="600"
-        align="right"
+        align="left"
       />
     </div>
   );

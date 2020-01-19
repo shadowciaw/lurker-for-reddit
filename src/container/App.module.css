@@ -1,7 +1,10 @@
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   background-color: #282c34;
   color: white;
+
 }
 
 .App-logo {
@@ -40,4 +43,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Body {
+  display: flex;
+  width: 100vw;
 }
