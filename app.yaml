@@ -1,3 +1,4 @@
+runtime: nodejs12
 handlers:
   - url: /static/js/(.*)
     static_files: build/static/js/\1
