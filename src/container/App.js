@@ -43,6 +43,7 @@ class App extends Component {
         author: unfilteredPosts[i].data.author,
         media_only: unfilteredPosts[i].data.media_only,
         spoiler: unfilteredPosts[i].data.spoiler,
+        is_self: unfilteredPosts[i].data.is_self,
         image: unfilteredPosts[i].data.url
       });
       lastID = unfilteredPosts[i].data.name;
