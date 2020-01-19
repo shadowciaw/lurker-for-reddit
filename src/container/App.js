@@ -16,13 +16,25 @@ class App extends Component {
   };
 
   // write your fetch funtion here!! will be called when user presses "load more posts button"
-  refetch = () => {};
+  refetch = (post_id) => {
+    var url;
+    if (post_id === "init"){
+        url = "https://www.reddit.com/r/all/top/.json?limit=1"
+    } else {
+        url = "https://www.reddit.com/r/all/top/.json??limit=1?" + "after=" + post_id
+    }
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", url, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+
+  };
 
   render() {
     return (
       <div className={classes.App}>
         <h1>Lurker for Reddit</h1>
-        <button onClick={() => this.refetch}>refetch</button>
+        <button onClick={() => this.refetch("init")}>refetch</button>
         {console.log("test1", this.state)}
 
         <Posts testPost={this.state} />
