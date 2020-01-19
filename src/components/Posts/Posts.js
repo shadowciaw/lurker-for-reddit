@@ -19,6 +19,7 @@ const posts = props => {
             author={post.author}
             spoiler={post.spoiler}
             image={post.image}
+            is_text={post.is_text}
           />
         );
       })}

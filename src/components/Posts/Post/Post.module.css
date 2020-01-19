@@ -4,8 +4,8 @@
   margin: 16px;
   /* top, right, bottom, left */
   padding: 10px;
-  border: solid;
-  background-color: #5B5B5B;
+  border: 1px solid;
+  background-color: #383838;
   width: auto;
   text-align: center;
   border-radius: 3%;
@@ -24,14 +24,14 @@
 .TitleScore {
   grid-area: A;
   align-self: center;
-  color: #24E5D8;
+  color: #dbf2ff;
   font-size: 25px;
 }
 
 .TitleText {
   grid-area: B;
-  color: #FFFFFF;
-  justify-self: left;
+  color: #4ea5d9;
+  justify-self: center;
   font-size: 23px;
   display: inline-block;
   overflow-x: hidden;
@@ -50,15 +50,20 @@
 
 .TitleSubreddit {
   grid-area: C;
-  color: rgb(69, 69, 69) ;
+  color: #1c6e8c;
 }
 
 .TitleUsername {
   grid-area: D;
-  color: rgb(69, 69, 69);
+  color: #1c6e8c;
 }
 
 .TitleTime {
   grid-area: E;
-  color: rgb(69, 69, 69);
+  color: #1c6e8c;
+}
+
+img {
+  border-radius: 5%;
+  margin: 1% auto;
 }

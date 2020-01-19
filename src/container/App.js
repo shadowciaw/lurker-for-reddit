@@ -43,7 +43,7 @@ class App extends Component {
         author: unfilteredPosts[i].data.author,
         media_only: unfilteredPosts[i].data.media_only,
         spoiler: unfilteredPosts[i].data.spoiler,
-        is_self: unfilteredPosts[i].data.is_self,
+        is_text: unfilteredPosts[i].data.is_self,
         image: unfilteredPosts[i].data.url
       });
       lastID = unfilteredPosts[i].data.name;
@@ -56,9 +56,9 @@ class App extends Component {
   fetchPosts = post_id => {
     var url;
     if (post_id === "init") {
-      url = "https://www.reddit.com/r/all/top/.json?limit=50";
+      url = "https://www.reddit.com/r/all/top/.json?limit=25";
     } else {
-      url = "https://www.reddit.com/r/all/top/.json?limit=50?after=" + post_id;
+      url = "https://www.reddit.com/r/all/top/.json?limit=25?after=" + post_id;
     }
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false); // false for synchronous request
@@ -81,9 +81,9 @@ class App extends Component {
           <h1>Lurker for Reddit</h1>
         </div>
         <div className={classes.Body}>
-          <div>
+          {/* <div>
             <Toolbar toggleNSFW={this.toggleNSFWHandler} />
-          </div>
+          </div> */}
           {/* {console.log(this.state.posts)} */}
           <Posts posts={this.state.posts} />
         </div>
