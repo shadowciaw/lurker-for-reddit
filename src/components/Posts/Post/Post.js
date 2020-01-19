@@ -8,6 +8,7 @@ const post = props => {
   console.log("[Post.js] rendering...");
 
   return (
+    //
     <div className={classes.Post}>
       <div className={classes.Title}>
         <div className={classes.TitleText}>{props.data.data.children[0].data.title}</div>
