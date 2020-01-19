@@ -7,7 +7,6 @@ const posts = props => {
 
   return (
     <div>
-      {console.log(props.testPost)}
       <Post data={props.testPost} />
     </div>
   );
