@@ -9,7 +9,11 @@ const post = props => {
 
   return (
     <div className={classes.Post}>
-      <img src={props.data.data.children[0].data.url} width="720" />
+      <img
+        src={props.data.data.children[0].data.url}
+        width="600"
+        align="right"
+      />
     </div>
   );
 };
