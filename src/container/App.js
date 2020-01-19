@@ -39,7 +39,7 @@ class App extends Component {
 
     for (var i = 0; i < unfilteredPosts.length; i++) {
       filteredPosts.push({
-        // if (unfilteredPosts[i].data.over_18 == true && this.state.showNSFW == false) ||
+        // if (unfilteredPosts[i].data.over_18 && !this.state.showNSFW ) ||
         //     (this.state.blacklist.includes(unfilteredPosts[i].data.subreddit_name_prefixed)){
         //     continue;
         // }
@@ -71,13 +71,6 @@ class App extends Component {
     console.log("-----------------------");
     console.log("fetch posts called! last id: " + this.state.lastPostID);
     var url;
-    if (this.state.lastPostID === "init") {
-      url = "https://www.reddit.com/r/all/top/.json?limit=5";
-    } else {
-      url =
-        "https://www.reddit.com/r/all/top/.json?limit=5?after=" +
-        this.state.lastPostID;
-    }
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false); // false for synchronous request
     xmlHttp.send(null);
