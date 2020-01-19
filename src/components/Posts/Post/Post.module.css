@@ -7,3 +7,31 @@
   width: auto;
   text-align: center;
 }
+
+.Title {
+  display: grid;
+  grid-template-areas:
+    "A B B B"
+    "A C D E";
+}
+
+.TitleScore {
+  grid-area: A;
+  align-self: center;
+}
+
+.TitleText {
+  grid-area: B;
+}
+
+.TitleSubreddit {
+  grid-area: C;
+}
+
+.TitleUsername {
+  grid-area: D;
+}
+
+.TitleTime {
+  grid-area: E;
+}
