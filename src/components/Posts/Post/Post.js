@@ -16,6 +16,10 @@ const post = props => {
     return score;
   };
 
+  let isText = () => {
+    if ()
+  }
+
   return (
     //
     <div className={classes.Post}>
