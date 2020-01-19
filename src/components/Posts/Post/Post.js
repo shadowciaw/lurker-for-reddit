@@ -32,22 +32,59 @@ const post = props => {
   };
 
   let showVideo = url => {
-    let regex = /.*youtu.be\/([a-zA-Z0-9]+)/;
-    let result = url.match(regex);
-    console.log(result);
-    if (result) {
-      url = "https://www.youtube.com/embed/" + result[1];
-    }
+    // this is 4am code i know its bad
 
-    return (
-      <iframe
-        width="600"
-        height="315"
-        src={url}
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      ></iframe>
-    );
+    // todo: i.reddit
+    let youtube = /.*youtu.be\/([a-zA-Z0-9]+)/;
+    let gifv = /.*(\/\/i\.imgur\.com\/[a-zA-Z0-9]+)\.gifv/;
+    let gfycat = /.*gfycat.com\/([a-zA-Z]+)/;
+    let vreddit = /.*v\.reddit\.it\/[a-zA-Z0-9]+/;
+
+    if (url.match(youtube)) {
+      url = "https://www.youtube.com/embed/" + url.match(youtube[1]);
+      return (
+        <iframe
+          width="600"
+          height="315"
+          src={url}
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        ></iframe>
+      );
+    } else if (url.match(gifv)) {
+      url = url.match(gifv)[1] + ".mp4";
+      return (
+        <video preload="auto" autoPlay="autoplay" loop="loop" width="600">
+          <source src={url} type="video/mp4" />
+        </video>
+      );
+    } else if (url.match(gfycat)) {
+      url = "https://gfycat.com/ifr/" + url.match(gfycat)[1];
+      return (
+        <iframe
+          src={url}
+          frameBorder="0"
+          scrolling="no"
+          width="600"
+          height="315"
+        ></iframe>
+      );
+    } else if (url.match(vreddit)) {
+      return (
+        <blockquote class="reddit-card" data-card-created="1579438370">
+          <a href="https://www.reddit.com/r/nextfuckinglevel/comments/eo66t2/this_guy_is_an_asian_parents_dream_child/">
+            This Guy is an Asian Parent's Dream Child
+          </a>{" "}
+          from{" "}
+          <a href="http://www.reddit.com/r/nextfuckinglevel">
+            r/nextfuckinglevel
+          </a>
+        </blockquote>
+      );
+    } else {
+      console.log("could not match anything: " + url);
+      return null;
+    }
   };
 
   return (
