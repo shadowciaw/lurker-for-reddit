@@ -67,13 +67,15 @@ class App extends Component {
   fetchPosts = () => {
     console.log("fetch posts called! last id: " + this.state.lastPostID);
     var url;
-    if (this.state.lastPostID === "init") {
-      url = "https://www.reddit.com/r/all/top/.json?limit=5";
-    } else {
-      url =
-        "https://www.reddit.com/r/all/top/.json?limit=5?after=" +
-        this.state.lastPostID;
-    }
+    // if (this.state.lastPostID === "init") {
+    //   url = "https://www.reddit.com/r/all/top/.json?limit=100";
+    // } else {
+    //   url =
+    //     "https://www.reddit.com/r/all/top/.json?limit=100?after=" +
+    //     this.state.lastPostID;
+    // }
+    url = "https://www.reddit.com/r/all/top/.json?limit=100";
+    console.log(url);
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false); // false for synchronous request
     xmlHttp.send(null);
@@ -101,7 +103,7 @@ class App extends Component {
         <button
           className={classes.LoadMoreButton}
           // onClick={() => this.fetchPosts(this.state.lastPostID)}
-          onClick={() => this.fetchPosts}
+          onClick={() => this.fetchPosts()}
         >
           load more posts
         </button>
