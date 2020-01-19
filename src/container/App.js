@@ -15,7 +15,7 @@ class App extends Component {
   state = {
     showNSFW: false,
     lastPostID: "",
-    posts: [testPost],
+    posts: [],
     blacklist: []
   };
 
@@ -26,6 +26,8 @@ class App extends Component {
   // filter function that sets the state and calls for a re-render
   filterData = responseItem => {
     // ... code here; edit response Item
+
+    console.log("fetching new posts from id: " + this.state.lastPostID);
 
     responseItem = JSON.parse(responseItem);
     let unfilteredPosts = responseItem.data.children;
@@ -57,6 +59,7 @@ class App extends Component {
       });
       lastID = unfilteredPosts[i].data.name;
       lastTitle = unfilteredPosts[i].data.title;
+      console.log("fetched new post: " + lastTitle);
     }
     console.log(lastID + ": " + lastTitle);
 
@@ -65,6 +68,7 @@ class App extends Component {
 
   // will be called when user presses "load more posts button"
   fetchPosts = () => {
+    console.log("-----------------------");
     console.log("fetch posts called! last id: " + this.state.lastPostID);
     var url;
     if (this.state.lastPostID === "init") {
@@ -100,8 +104,8 @@ class App extends Component {
         </div>
         <button
           className={classes.LoadMoreButton}
-          // onClick={() => this.fetchPosts(this.state.lastPostID)}
-          onClick={() => this.fetchPosts}
+          onClick={this.fetchPosts}
+          // onClick={() => this.fetchPosts()}
         >
           load more posts
         </button>

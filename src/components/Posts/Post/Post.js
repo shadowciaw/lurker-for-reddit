@@ -82,7 +82,7 @@ const post = props => {
         </blockquote>
       );
     } else {
-      console.log("could not match anything: " + url);
+      // console.log("could not match anything: " + url);
       return <a href={url}>{url}</a>;
     }
   };
@@ -98,7 +98,9 @@ const post = props => {
         <div className={classes.TitleTime}>{computeTime()}</div>
       </div>
       <div className={classes.TitleImage}>
-        {props.is_text && <div className={classes.TitleImageText}>{props.selftext}</div>}
+        {props.is_text && (
+          <div className={classes.TitleImageText}>{props.selftext}</div>
+        )}
         {notText && isImage() && (
           <img src={props.image} width="600" align="center" />
         )}
