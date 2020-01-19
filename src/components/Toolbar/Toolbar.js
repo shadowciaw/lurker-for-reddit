@@ -1,9 +1,14 @@
 import React from "react";
 
 const toolbar = props => {
-  console.log("[Posts.js] rendering...");
+  console.log("[Toolbar.js] rendering...");
 
-  return {};
+  return (
+    <div>
+      <button> toggle NSFW </button>
+      <button> null </button>
+    </div>
+  );
 };
 
 export default toolbar;
