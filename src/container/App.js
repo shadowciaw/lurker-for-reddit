@@ -12,12 +12,14 @@ class App extends Component {
     console.log("[App.js] constructor");
     this.state = {
       showNSFW: false,
+      lastPost: "",
       posts: [testPost]
     };
   }
 
   state = {
     showNSFW: false,
+    lastPost: "",
     posts: []
   };
 
@@ -25,27 +27,28 @@ class App extends Component {
   filterData = responseItem => {
     // ... code here; edit response Item
 
-    responseItem = JSON.parse(responseItem)
-    let unfilteredPosts = responseItem.data.children
-    console.log(unfilteredPosts);
-    let filteredPosts = []
+    responseItem = JSON.parse(responseItem);
+    let unfilteredPosts = responseItem.data.children;
+    // console.log(unfilteredPosts);
+    let filteredPosts = [];
+    let i = 0;
 
-    for (var i = 0; i < unfilteredPosts.length; i++) {
-        filteredPosts.push(
-            {
-                id:unfilteredPosts[i].data.name,
-                title:unfilteredPosts[i].data.title,
-                score:unfilteredPosts[i].data.score,
-                created:unfilteredPosts[i].data.created,
-                over_18:unfilteredPosts[i].data.over_18,
-                author:unfilteredPosts[i].data.author,
-                media_only:unfilteredPosts[i].data.media_only,
-                spoiler:unfilteredPosts[i].data.spoiler,
-                image:unfilteredPosts[i].data.url
-            })
+    for (i = 0; i < unfilteredPosts.length; i++) {
+      filteredPosts.push({
+        id: unfilteredPosts[i].data.name,
+        subreddit: unfilteredPosts[i].data.subreddit_name_prefixed,
+        title: unfilteredPosts[i].data.title,
+        score: unfilteredPosts[i].data.score,
+        created: unfilteredPosts[i].data.created,
+        nsfw: unfilteredPosts[i].data.over_18,
+        author: unfilteredPosts[i].data.author,
+        media_only: unfilteredPosts[i].data.media_only,
+        spoiler: unfilteredPosts[i].data.spoiler,
+        image: unfilteredPosts[i].data.url
+      });
     }
 
-    this.setState(filteredPosts);
+    this.setState({ posts: filteredPosts });
   };
 
   // will be called when user presses "load more posts button"
@@ -66,7 +69,7 @@ class App extends Component {
 
   toggleNSFWHandler = () => {
     let showNSFW = this.state.showNSFW;
-    console.log(showNSFW ? "now SHOWING NSFW" : "NOT SHOWING NSFW");
+    console.log(showNSFW ? "SHOWING NSFW" : "NOT SHOWING NSFW");
     this.setState({ showNSFW: !showNSFW });
   };
 
@@ -80,7 +83,8 @@ class App extends Component {
           <div>
             <Toolbar toggleNSFW={this.toggleNSFWHandler} />
           </div>
-          <Posts testPost={testPost} />
+          {console.log(this.state.posts)}
+          {/* <Posts posts={this.state.posts} /> */}
         </div>
         <button
           className={classes.LoadMoreButton}
