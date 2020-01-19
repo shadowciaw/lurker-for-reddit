@@ -22,6 +22,7 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <h1>Lurker for Reddit</h1>
+        <button onClick={() => this.refetch}>refetch</button>
         {console.log("test1", this.state)}
 
         <Posts testPost={this.state} />
