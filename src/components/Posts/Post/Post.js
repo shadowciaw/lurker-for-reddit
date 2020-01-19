@@ -38,6 +38,12 @@ const post = props => {
         {notText && isImage() && (
           <img src={props.image} width="600" align="center" />
         )}
+        {notText && !isImage() && (
+          <video width="600" controls autoplay>
+            {console.log(props.image)}
+            <source src={props.image} />
+          </video>
+        )}
       </div>
     </div>
   );
